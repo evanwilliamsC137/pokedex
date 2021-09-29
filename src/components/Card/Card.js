@@ -1,6 +1,7 @@
 import React from "react";
 import './style.css'
 
+//Function that dynamically creates each pokemon's card
 function Card({pokemon}) {
     return(
         <div className={"Card"}>
