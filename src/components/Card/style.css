@@ -1,0 +1,33 @@
+.Card {
+    background: whitesmoke;
+    border-radius: 10px;
+}
+
+
+.Card_img {
+    text-align: center;
+}
+
+
+.Card_name {
+    text-align: center;
+    text-transform: capitalize;
+    font-weight: 800;
+}
+
+.Card_types {
+    padding: 5px 10px;
+    margin: 10px 10px 10px 0;
+    border-radius: 5px;
+    background: cyan;
+    color: #fff;
+}
+
+.Card_info {
+    margin-left: 10px;
+}
+
+.Card_data {
+    padding-bottom: 10px;
+}
+
