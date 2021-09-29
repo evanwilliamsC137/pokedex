@@ -4,6 +4,9 @@ import './style.css'
 //Function that dynamically creates each pokemon's card
 function Card({pokemon}) {
     return(
+        <div className={"container"}>
+
+
         <div className={"Card"}>
             <div className={"Card_img"}>
                 <img src={pokemon.sprites.front_default}/>
@@ -33,6 +36,7 @@ function Card({pokemon}) {
                 </div>
             </div>
 
+        </div>
         </div>
     )
 }

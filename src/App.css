@@ -21,9 +21,19 @@
   padding: 5px 10px;
   margin-right: 10px;
   border-radius: 5px;
-  background: steelblue;
-  color: whitesmoke;
+  background: whitesmoke;
+  color: red;
   font-size: 1em;
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 

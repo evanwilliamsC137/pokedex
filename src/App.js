@@ -2,16 +2,21 @@
 import './App.css';
 import Navbar from "./components/Navbar";
 import Card from './components/Card'
+import SearchBar from "./components/Search/search";
 import React, {useState, useEffect} from "react";
 import {getAllPokemon, getPokemon} from "./services/pokemon";
 
 
 function App() {
   const [pokemonData, setPokemonData] = useState(null);
-  const initialUrl = `https://pokeapi.co/api/v2/pokemon?limit=151`
+  const initialUrl = `https://pokeapi.co/api/v2/pokemon?limit=10`
   const [nextUrl, setNextUrl] = useState('');
   const [prevUrl, setPrevUrl] = useState('');
   const [loading, setLoading] = useState(true);
+  // const { search } = window.location;
+  // const query = new URLSearchParams(search).get('s');
+  // const filteredPokemon = filterPokemon( query);
+
 
 
   //Fetch data using all pokemon API
@@ -32,7 +37,7 @@ function App() {
     let data = await getAllPokemon(nextUrl);
     await loadingPokemon(data.results);
     setNextUrl(data.next);
-    setPrevUrl(data.prev);
+    setPrevUrl(data.previous);
     setLoading(false);
   }
 
@@ -46,7 +51,7 @@ function App() {
     let data = await getAllPokemon(prevUrl);
     await loadingPokemon(data.results);
     setNextUrl(data.next);
-    setPrevUrl(data.prev);
+    setPrevUrl(data.previous);
     setLoading(false);
   }
 
@@ -60,6 +65,21 @@ function App() {
     setPokemonData(_pokemon)
   }
 
+  //Search through pokemon
+  // const filterPokemon = async (query) => {
+  //   if (!query) {
+  //     return;
+  //   }
+  //   let response = await getAllPokemon(initialUrl);
+  //   let pokemon = await loadingPokemon(response.results);
+  //   setLoading(false);
+  //
+  //   return pokemon.filter((pokemon) => {
+  //     let pokemonName = pokemon.name.toLowerCase();
+  //     return pokemonName.includes(query);
+  //   });
+  // };
+
   console.log(pokemonData)
   // html for each page with navbar and grid container holding information
   return(
@@ -68,7 +88,9 @@ function App() {
           //Ternary operator to check if page is loading. Otherwise display data
           loading ? <h1>Loading...</h1> : (
               <>
-                <Navbar></Navbar>
+                <Navbar/>
+                {/*<SearchBar/>*/}
+
                 <div className={'btn'}>
                   <button onClick={prev}>Prev</button>
                   <button onClick={next}>Next</button>
@@ -77,6 +99,11 @@ function App() {
                   {pokemonData.map((pokemon, i) => {
                     return <Card key={i} pokemon={pokemon}/>
                   })}
+                  {/*<ul>*/}
+                  {/*  {filteredPokemon.map((pokemon, i) => {*/}
+                  {/*        <Card key={i} pokemon={pokemon}/>*/}
+                  {/*    })}*/}
+                  {/*</ul>*/}
                 </div>
               </>
         )
