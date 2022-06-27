@@ -5,11 +5,9 @@
 
 #logo {
     background-image: url(https://fontmeme.com/permalink/210929/6fb2e7dbd366da3c59d32ca833641894.png);
-    display: inline-block;
-    margin: 0 auto;
-    text-indent: -9999px;
-    width: 100%;
     height: 150px;
-    justify-content: center;
+    padding-top: 10px;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top;
 }
